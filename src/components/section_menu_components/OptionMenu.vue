@@ -7,127 +7,56 @@ export default {
   data() {
     return {
       cocktails: [],
-      categories: [],
-      glasses: [],
-      ingredients: [],
-      alcoholFilters: [],
-      selectedCategory: '',
-      selectedGlass: '',
-      selectedIngredient: '',
-      selectedAlcohol: ''
+      filteredMenus: [],
+      filterType: 'Alcoholic',
     };
   },
+
   mounted() {
     this.fetchCocktails();
-    this.fetchFilterData();
   },
 
   methods: {
     async fetchCocktails() {
       try {
-        const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a');
+        // Ambil semua cocktail berdasarkan filterType
+        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${this.filterType}`);
         if (response.data.drinks && response.data.drinks.length > 0) {
           this.cocktails = response.data.drinks;
+          this.filteredMenus = this.cocktails;
+        } else {
+          this.filteredMenus = [];
         }
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     },
 
-    async fetchFilterData() {
-      try {
-        const categoryResponse = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
-        this.categories = categoryResponse.data.drinks;
-
-        const glassResponse = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list');
-        this.glasses = glassResponse.data.drinks;
-
-        const ingredientResponse = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list');
-        this.ingredients = ingredientResponse.data.drinks;
-
-        const alcoholResponse = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list');
-        this.alcoholFilters = alcoholResponse.data.drinks;
-      } catch (error) {
-        console.error('Error fetching filter data:', error);
-      }
+    showAllMenus() {
+      this.filterType = 'Alcoholic';
+      this.fetchCocktails();
     },
 
-    async filterByCategory(category) {
-      this.selectedCategory = category;
-      try {
-        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`);
-        if (response.data.drinks) {
-          this.cocktails = response.data.drinks;
-        }
-      } catch (error) {
-        console.error('Error filtering by category:', error);
-      }
+    filterByAlcoholic() {
+      this.filterType = 'Alcoholic';
+      this.fetchCocktails();
     },
 
-    async filterByGlass(glass) {
-      this.selectedGlass = glass;
-      try {
-        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${glass}`);
-        if (response.data.drinks) {
-          this.cocktails = response.data.drinks;
-        }
-      } catch (error) {
-        console.error('Error filtering by glass:', error);
-      }
+    filterByNonAlcoholic() {
+      this.filterType = 'Non_Alcoholic';
+      this.fetchCocktails();
     },
-
-    async filterByIngredient(ingredient) {
-      this.selectedIngredient = ingredient;
-      try {
-        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
-        if (response.data.drinks) {
-          this.cocktails = response.data.drinks;
-        }
-      } catch (error) {
-        console.error('Error filtering by ingredient:', error);
-      }
-    },
-
-    async filterByAlcohol(alcohol) {
-      this.selectedAlcohol = alcohol;
-      try {
-        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${alcohol}`);
-        if (response.data.drinks) {
-          this.cocktails = response.data.drinks;
-        }
-      } catch (error) {
-        console.error('Error filtering by alcohol:', error);
-      }
-    },
-
-    extractIngredients(cocktail) {
-      const ingredients = [];
-      for (let i = 1; i <= 15; i++) {
-        const ingredient = cocktail[`strIngredient${i}`];
-        if (ingredient) {
-          ingredients.push(ingredient);
-        }
-      }
-      return ingredients;
-    }
-  }
+  },
 };
 </script>
 
 
 <template>
-  <FilterSectionMenu
-      :categories="categories"
-      :glasses="glasses"
-      :ingredients="ingredients"
-      :alcoholFilters="alcoholFilters"
-      @filterCategory="filterByCategory"
-      @filterGlass="filterByGlass"
-      @filterIngredient="filterByIngredient"
-      @filterAlcohol="filterByAlcohol"
-  />
-  <div class="grid grid-cols-4 gap-7 mt-12 h-[400px] overflow-auto" v-if="cocktails.length > 0">
-    <div class="w-72 mb-5" v-for="cocktail in cocktails" :key="cocktail.idDrink">
+  <FilterSectionMenu :onFilter="filterByAlcoholic"
+                     :onShowAll="showAllMenus"
+                     @filterNonAlcohol="filterByNonAlcoholic"/>
+  <div class="grid grid-cols-4 gap-7 mt-12 h-[400px] overflow-auto" v-if="filteredMenus.length > 0">
+    <div class="w-72 mb-5" v-for="cocktail in filteredMenus" :key="cocktail.idDrink">
       <span class="mb-7 overflow-hidden h-32">
         <img :src="cocktail.strDrinkThumb" alt="image pizza" class="image-hover-style" >
       </span>
