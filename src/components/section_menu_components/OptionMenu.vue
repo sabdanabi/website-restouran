@@ -285,7 +285,7 @@
           </article>
         </div>
         <p class="font-semibold text-electricBlue ">Rp{{ menu.price.toLocaleString() }}</p>
-        <p class="text-sm text-gray-500">Sold: {{ menu.sold }}</p>
+<!--        <p class="text-sm text-gray-500">Sold: {{ menu.sold }}</p>-->
       </div>
     </div>
   </div>
