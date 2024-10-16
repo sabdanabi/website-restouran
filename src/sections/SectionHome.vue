@@ -20,12 +20,13 @@ export default {
         <p class="text-white leading-relaxed mt-4 text-lg w-[66%]">
           LeT’S EaT is your go-to neighborhood spot for seasonal dishes inspired by international cuisine.
         </p>
-        <button class="bg-[#FD872D] py-3 text-white font-medium text-sm px-6 rounded-lg mt-9">
-          Explore Menu
+        <button class="bg-[#FD872D] py-3 text-white font-medium text-sm px-6 rounded-lg mt-9
+        hover:border-2 hover:border-[#FD872D] hover:bg-transparent">
+          <router-link to="/#menus">Explore Menu</router-link>
         </button>
       </article>
       <div>
-        <img src="/assets_Image/hero_baner_image.png">
+        <img src="/assets_Image/hero_baner_image.png" alt="image">
       </div>
     </div>
   </section>

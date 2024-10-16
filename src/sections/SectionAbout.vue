@@ -1,13 +1,13 @@
 <script>
   export default {
-    name: "AboutSection"
+    name: "SectionAbout"
   }
 </script>
 
 <template>
   <section id="about" class="container px-20 font-poppins py-24">
     <div class="container bg-[#dbf2ff] rounded-xl overflow-hidden flex">
-      <img src="/assets_Image/image-place1.png" alt="img"/>
+      <img src="/assets_Image/image-place1.png" alt="img" />
       <article class="mt-24 ml-10">
         <p class="font-semibold text-2xl pb-3 text-[#687379]">About LeT’S EaT</p>
         <p class="text-base w-[70%] leading-relaxed font-medium text-[#768289]">

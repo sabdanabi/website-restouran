@@ -6,11 +6,31 @@ import SectionGalery from "@/sections/SectionGalery.vue";
 import SectionService from "@/sections/SectionService.vue";
 
 const routes = [
-    { path: '/', component: SectionHome },
-    { path: '/about', component: SectionAbout },
-    { path: '/menus', component: SectionMenu },
-    { path: '/gallery', component: SectionGalery },
-    { path: '/service', component: SectionService },
+    {
+        path: '/',
+        name: 'Home',
+        component: SectionHome
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: SectionAbout
+    },
+    {
+        path: '/menus',
+        name: 'Menus',
+        component: SectionMenu
+    },
+    {
+        path: '/gallery',
+        name: 'Gallery',
+        component: SectionGalery
+    },
+    {
+        path: '/service',
+        name: 'Service',
+        component: SectionService
+    }
 ];
 
 const router = createRouter({
@@ -19,10 +39,20 @@ const router = createRouter({
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition;
+        } else if (to.hash) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        el: to.hash,
+                        behavior: 'smooth',
+                    });
+                }, 300);
+            });
         } else {
             return { left: 0, top: 0, behavior: 'smooth' };
         }
     }
 });
+
 
 export default router;
