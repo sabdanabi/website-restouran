@@ -44,7 +44,6 @@
       },
     },
   }
-
 </script>
 
 <template>
@@ -54,20 +53,20 @@
         <router-link to="/" class="font-poppins">LeT'S EaT</router-link>
       </div>
       <div class="flex justify-between items-center gap-20">
-        <ul class="hidden md:flex space-x-8">
-          <li class="text-gray-300 hover:text-white font-poppins">
+        <ul class="hidden md:flex space-x-8 text-white">
+          <li class="text-white hover:text-gray-300 font-poppins">
             <router-link to="About">Home</router-link>
           </li>
-          <li class="text-gray-300 hover:text-white font-poppins">
+          <li class=" hover:text-gray-300 font-poppins">
             <router-link to="/#about">About us</router-link>
           </li>
-          <li class="text-gray-300 hover:text-white font-poppins">
+          <li class=" hover:text-white font-poppins">
             <router-link to="/#menus">Menus</router-link>
           </li>
-          <li class="text-gray-300 hover:text-white font-poppins">
+          <li class=" hover:text-gray-300 font-poppins">
             <router-link to="/#gallery">Gallery</router-link>
           </li>
-          <li class="text-gray-300 hover:text-white font-poppins">
+          <li class=" hover:text-gray-300 font-poppins">
             <router-link to="/#service">Services</router-link>
           </li>
         </ul>

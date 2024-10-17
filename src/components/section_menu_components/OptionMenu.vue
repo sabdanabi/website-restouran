@@ -19,7 +19,6 @@ export default {
   methods: {
     async fetchCocktails() {
       try {
-        // Ambil semua cocktail berdasarkan filterType
         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${this.filterType}`);
         if (response.data.drinks && response.data.drinks.length > 0) {
           this.cocktails = response.data.drinks;

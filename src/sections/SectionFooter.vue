@@ -26,7 +26,6 @@ import MapLocationComponents from "@/components/footer_components/MapLocationCom
         <h3 class="text-blue-600 font-bold mb-4">LeT'S EaT</h3>
         <p class="w-72">LeT'S EaT, founded in 1990, serves pizzas, burgers, and similar fast food.</p>
       </div>
-
       <div>
         <h3 class="text-blue-600 font-bold mb-4">Get in Touch</h3>
         <ul class="space-y-2">
