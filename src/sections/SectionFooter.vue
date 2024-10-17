@@ -1,10 +1,11 @@
 <script>
 
 import {Icon} from "@iconify/vue";
+import MapLocationComponents from "@/components/footer_components/MapLocationComponents.vue";
 
   export default {
     name: "SectionFooter",
-    components: {Icon},
+    components: {MapLocationComponents, Icon},
     props: {
       newReview: {
         type: Object,

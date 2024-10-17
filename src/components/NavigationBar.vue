@@ -48,7 +48,7 @@
 </script>
 
 <template>
-  <nav :class="['font-poppins w-full flex z-10 px-20', isScrolled ? 'fixed top-0 left-0 bg-black bg-opacity-75 backdrop-filter backdrop-blur-lg z-[9999] pb-5' : 'absolute top-0 left-0 bg-transparent']">
+  <nav :class="['font-poppins w-full flex z-10 px-20', isScrolled ? 'fixed top-0 left-0 bg-black bg-opacity-30 backdrop-filter backdrop-blur-lg z-[9999] pb-5' : 'absolute top-0 left-0 bg-transparent']">
     <div class="container mx-auto flex justify-between items-center pt-4">
       <div class="text-white text-2xl font-bold">
         <router-link to="/" class="font-poppins">LeT'S EaT</router-link>
@@ -79,6 +79,10 @@
             v-if="isPopupOpen" ref="popup"
             class="absolute right-10 top-16 mt-2 w-48 bg-white shadow-lg border rounded-md block"
         >
+          <div class="flex gap-5 px-4 pb-4 pt-4 hover:bg-mediumGrey rounded-b-md">
+            <Icon icon="mynaui:location" width="30" height="30"/>
+            <router-link to="/#map" class="mb-2">Location</router-link>
+          </div>
           <div class="flex gap-5 px-4 pt-4 pb-4 hover:bg-mediumGrey rounded-t-md">
             <Icon icon="material-symbols-light:comment-outline" width="30" height="30"/>
             <router-link to="/#review" class="mb-2">Review</router-link>
