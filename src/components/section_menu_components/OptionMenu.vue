@@ -227,6 +227,7 @@ import axios from 'axios';
         filteredMenus: []
       }
     },
+
     methods: {
       filterBySold() {
         this.filteredMenus = this.menus.filter(menu => menu.sold > 50);
@@ -248,6 +249,7 @@ import axios from 'axios';
         this.filteredMenus = this.menus.filter(menu => specificIds.includes(menu.id));
       }
     },
+
     computed: {
       displayedMenus() {
         return this.filteredMenus.length > 0 ? this.filteredMenus : this.menus;

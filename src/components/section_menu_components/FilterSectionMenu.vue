@@ -1,19 +1,6 @@
-<script>export default {
+<script>
+export default {
   name: 'FilterSectionMenu',
-  props: {
-    onShowAll: {
-      type: Function,
-      required: true
-    },
-    filter: {
-      type: Function,
-      required: true
-    },
-    filterNonAlcohol: {
-      type: Function,
-      required: true
-    }
-  }
 };
 </script>
 
@@ -23,12 +10,12 @@
       <a href="#" class="style-title-section">Our Menu</a>
       <div class="flex justify-between items-center gap-20">
         <ul class="hidden md:flex space-x-8 font-medium">
-          <li><button @click="filter" class="style-filter-menu focus:text-electricBlue">Best Sellers</button></li>
-          <li><button @click="showAll" class="style-filter-menu focus:text-electricBlue">All Menus</button></li>
-          <li><button @click="$emit('filter')" class="style-filter-menu">Alcoholic</button></li>
-          <li><button @click="$emit('filterNonAlcohol')" class="style-filter-menu">Non-Alcoholic</button></li>
-          <li><button @click="filterIceCream" class="style-filter-menu">Ice Cream</button></li>
-          <li><button @click="filterDrinks" class="style-filter-menu">Drinks</button></li>
+          <li><button @click="$emit('filter')" class="style-filter-menu focus:text-electricBlue">Best Seller</button></li>
+          <li><button @click="$emit('showAll')" class="style-filter-menu focus:text-electricBlue">All Menus</button></li>
+          <li><button @click="$emit('filterPizza')" class="style-filter-menu focus:text-electricBlue">Pizza</button></li>
+          <li><button @click="$emit('filterBurger')" class="style-filter-menu focus:text-electricBlue">Burger</button></li>
+          <li><button @click="$emit('filterIceCream')" class="style-filter-menu focus:text-electricBlue">Ice Cream</button></li>
+          <li><button @click="$emit('filterSpecificIds')" class="style-filter-menu focus:text-electricBlue">Drinks</button></li>
         </ul>
       </div>
     </div>

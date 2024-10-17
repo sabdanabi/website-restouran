@@ -79,11 +79,11 @@
             v-if="isPopupOpen" ref="popup"
             class="absolute right-10 top-16 mt-2 w-48 bg-white shadow-lg border rounded-md block"
         >
-          <div class="flex gap-5 px-4 pb-4 pt-4 hover:bg-mediumGrey rounded-b-md">
+          <div class="flex gap-5 px-4 pb-4 pt-4 hover:bg-mediumGrey rounded-t-md">
             <Icon icon="mynaui:location" width="30" height="30"/>
             <router-link to="/#map" class="mb-2">Location</router-link>
           </div>
-          <div class="flex gap-5 px-4 pt-4 pb-4 hover:bg-mediumGrey rounded-t-md">
+          <div class="flex gap-5 px-4 pt-4 pb-4 hover:bg-mediumGrey">
             <Icon icon="material-symbols-light:comment-outline" width="30" height="30"/>
             <router-link to="/#review" class="mb-2">Review</router-link>
           </div>
