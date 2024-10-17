@@ -1,6 +1,6 @@
 <script>
-  import FilterSectionMenu from "@/components/section_menu_components/FilterSectionMenu.vue";
-  import axios from 'axios';
+import FilterSectionMenu from "@/components/section_menu_components/FilterSectionMenu.vue";
+import axios from 'axios';
 
   export default  {
     components: {FilterSectionMenu},
@@ -255,6 +255,7 @@
     },
   };
 </script>
+
 
 <template>
   <FilterSectionMenu

@@ -26,7 +26,7 @@ export default {
         </button>
       </article>
       <div>
-        <img src="/assets_Image/hero_baner_image.png">
+        <img src="/assets_Image/hero_baner_image.png" alt="image">
       </div>
     </div>
   </section>

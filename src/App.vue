@@ -7,6 +7,9 @@ import SectionService from "@/sections/SectionService.vue";
 import SectionReview from "@/sections/SectionReview.vue";
 import SectionFooter from "@/sections/SectionFooter.vue";
 import NavigationBar from "@/components/NavigationBar.vue";
+import MapComponent from "@/components/footer_components/MapLocationComponents.vue";
+import MapLocationComponents from "@/components/footer_components/MapLocationComponents.vue";
+import SectionInformations from "@/sections/SectionInformations.vue";
 export default {
   data() {
     return {
@@ -48,6 +51,9 @@ export default {
     }
   },
   components: {
+    SectionInformations,
+    MapLocationComponents,
+    MapComponent,
     NavigationBar,
     SectionFooter,
     SectionReview,
@@ -68,6 +74,8 @@ export default {
     <SectionMenu/>
     <SectionGalery/>
     <SectionService/>
+    <MapLocationComponents/>
+    <SectionInformations/>
     <SectionReview :reviews="dataReview" />
     <SectionFooter :onAddReview="addNewDataReview" :newReview="newDataReview"/>
   </body>
